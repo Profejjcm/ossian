@@ -7,13 +7,17 @@ import java.math.MathContext;
 public class CalcPI {
 
      public static void main(String[] args) {
-        //meter en el método compute
+        compute();
+    }
+
+    public static void compute() {
+        //selecion click derecho introduce y refactor, method 
         BigDecimal pi = new BigDecimal(0);
         BigDecimal limit = new BigDecimal(1).movePointLeft(10);
         boolean stop = false;
         for (int k = 0; !stop; k++) {
             BigDecimal piK = piFunction(k, NUM_DIG);
-            //meter en el método piFunction                
+                            
             pi = pi.add(piK);
             if (piK.compareTo(limit) < 0) {
                 stop = true;
