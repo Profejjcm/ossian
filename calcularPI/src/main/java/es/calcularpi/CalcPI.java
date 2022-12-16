@@ -7,22 +7,23 @@ import java.math.MathContext;
 public class CalcPI {
 
      public static void main(String[] args) {
-        MathContext mc = new MathContext(10);         
         //meter en el método compute
         BigDecimal pi = new BigDecimal(0);
         BigDecimal limit = new BigDecimal(1).movePointLeft(10);
         boolean stop = false;
         for (int k = 0; !stop; k++) {
-            BigDecimal piK = piFunction(k, mc);
+            BigDecimal piK = piFunction(k, NUM_DIG);
             //meter en el método piFunction                
             pi = pi.add(piK);
             if (piK.compareTo(limit) < 0) {
                 stop = true;
             }
         }
-        System.out.println(pi.round(mc));
+        System.out.println(pi.round(NUM_DIG));
         //meter en el método compute
     }
+     
+    public static final MathContext NUM_DIG = new MathContext(10);// le di a refactor rename selecionando el mc le cambie el nombre luego selecione remplace luego selecione todo refactor y constan public
 
     public static BigDecimal piFunction(int k, MathContext mc) {
         ///seleciono lo que quiero cambiar click derecho refactor y introduce y method
